@@ -1,37 +1,37 @@
-class UsersControllersController < ApplicationController
+class UsersController < ApplicationController
 
-  # GET: /users_controllers
-  get "/users_controllers" do
-    erb :"/users_controllers/index.html"
+  # GET: /users
+  get "/users" do
+    erb :"/users/index.html"
   end
 
-  # GET: /users_controllers/new
-  get "/users_controllers/new" do
-    erb :"/users_controllers/new.html"
+  # GET: /users/new
+  get "/users/new" do
+    erb :"/users/new.html"
   end
 
-  # POST: /users_controllers
-  post "/users_controllers" do
-    redirect "/users_controllers"
+  # POST: /users
+  post "/users" do
+    redirect "/users"
   end
 
-  # GET: /users_controllers/5
-  get "/users_controllers/:id" do
-    erb :"/users_controllers/show.html"
+  # GET: /users/5
+  get "/users/:id" do
+    erb :"/users/show.html"
   end
 
-  # GET: /users_controllers/5/edit
-  get "/users_controllers/:id/edit" do
-    erb :"/users_controllers/edit.html"
+  # GET: /users/5/edit
+  get "/users/:id/edit" do
+    erb :"/users/edit.html"
   end
 
-  # PATCH: /users_controllers/5
-  patch "/users_controllers/:id" do
-    redirect "/users_controllers/:id"
+  # PATCH: /users/5
+  patch "/users/:id" do
+    redirect "/users/:id"
   end
 
-  # DELETE: /users_controllers/5/delete
-  delete "/users_controllers/:id/delete" do
-    redirect "/users_controllers"
+  # DELETE: /users/5/delete
+  delete "/users/:id/delete" do
+    redirect "/users"
   end
 end

@@ -1,37 +1,37 @@
-class SandwichesControllersController < ApplicationController
+class SandwichesController < ApplicationController
 
-  # GET: /sandwiches_controllers
-  get "/sandwiches_controllers" do
-    erb :"/sandwiches_controllers/index.html"
+  # GET: /sandwiches
+  get "/sandwiches" do
+    erb :"/sandwiches/index.html"
   end
 
-  # GET: /sandwiches_controllers/new
-  get "/sandwiches_controllers/new" do
-    erb :"/sandwiches_controllers/new.html"
+  # GET: /sandwiches/new
+  get "/sandwiches/new" do
+    erb :"/sandwiches/new.html"
   end
 
-  # POST: /sandwiches_controllers
-  post "/sandwiches_controllers" do
-    redirect "/sandwiches_controllers"
+  # POST: /sandwiches
+  post "/sandwiches" do
+    redirect "/sandwiches"
   end
 
-  # GET: /sandwiches_controllers/5
-  get "/sandwiches_controllers/:id" do
-    erb :"/sandwiches_controllers/show.html"
+  # GET: /sandwiches/5
+  get "/sandwiches/:id" do
+    erb :"/sandwiches/show.html"
   end
 
-  # GET: /sandwiches_controllers/5/edit
-  get "/sandwiches_controllers/:id/edit" do
-    erb :"/sandwiches_controllers/edit.html"
+  # GET: /sandwiches/5/edit
+  get "/sandwiches/:id/edit" do
+    erb :"/sandwiches/edit.html"
   end
 
-  # PATCH: /sandwiches_controllers/5
-  patch "/sandwiches_controllers/:id" do
-    redirect "/sandwiches_controllers/:id"
+  # PATCH: /sandwiches/5
+  patch "/sandwiches/:id" do
+    redirect "/sandwiches/:id"
   end
 
-  # DELETE: /sandwiches_controllers/5/delete
-  delete "/sandwiches_controllers/:id/delete" do
-    redirect "/sandwiches_controllers"
+  # DELETE: /sandwiches/5/delete
+  delete "/sandwiches/:id/delete" do
+    redirect "/sandwiches"
   end
 end
