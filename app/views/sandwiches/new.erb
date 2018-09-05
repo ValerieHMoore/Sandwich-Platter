@@ -1,1 +1,9 @@
-<h1>Insert the form to create a new instance of your model.</h1>
+<h2>Create a New Sandwich</h2>
+<form action="/sandwiches" method="post">
+    <label for="sandwich_name">Name Your Sandwich:</label>
+    <input type="text" name="sandwich_name" id="sandwich_name" required><br>
+    <label for="ingredients">List Ingredients and Directions:</label>
+    <input type="text" name="ingredients" id="ingredients"><br>
+    <input type="submit" value="Create">
+
+</form>

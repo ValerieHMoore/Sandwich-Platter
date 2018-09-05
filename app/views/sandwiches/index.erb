@@ -1,1 +1,10 @@
-<h1>This is the Model's index page.</h1>
+<h2>All Sandwiches</h2>
+<h3><a class="button" href="/sandwiches/new">Create a New Sandwich</a></h3><br>
+<ul>
+<%@sandwiches.each do |sandwich|%>
+<li><%=sandwich.sandwich_name%></li>
+<a href='/sandwiches/<%=sandwich.id%>'>Show Ingredients</a><br>
+<br>
+<%end%>
+</ul>
+

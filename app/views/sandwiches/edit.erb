@@ -1,1 +1,12 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h2>Edit a Sandwich</h2>
+<form action="/sandwiches/<%=@sandwich.id%>" method="post">
+ <input id="hidden" type="hidden" name="_method" value="patch">
+    <label for="sandwich_name">Sandwich Name:</label>
+    <input type="text" name="sandwich_name" id="sandwich_name" value="<%=@sandwich.sandwich_name%>"><br>
+
+    <label for="ingredients">Ingredients/Directions:</label>
+    <input type="text" name="ingredients" id="ingredients" value="<%=@sandwich.ingredients%>"><br>
+    <input type="submit" value="Update Sandwich">
+    
+</form>
+
