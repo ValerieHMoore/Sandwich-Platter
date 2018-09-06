@@ -21,15 +21,19 @@ class UsersController < ApplicationController
   end
   
   get '/login' do
-    redirect "/users/show" if Helpers.is_logged_in?(session)    
+    if Helpers.is_logged_in?(session)
+      @user = User.find_by_id(params[:id])
+      redirect "/users/#{@user.id}"
+    else
     erb :"/users/login"
+    end
   end
 
   post '/login' do
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password]) 
       session[:user_id] = @user.id
-      redirect '/users/show'
+      redirect "/users/#{@user.id}"
     else
       redirect '/login'
     end
@@ -40,9 +44,7 @@ class UsersController < ApplicationController
     if Helpers.is_logged_in?(session)
       @user = User.find_by_id(params[:id])
       @current_user = Helpers.current_user(session)
-      #if @sandwich.user == current_user
-       # @sandwiches = User.sandwiches
-        erb :'/users/show'
+      erb :'/users/show'
     else
       redirect '/login'
       #end
@@ -51,8 +53,13 @@ class UsersController < ApplicationController
     
   get '/logout' do
     session.clear
-    flash[:message] = "You are logged out."
-    redirect '/login'
+    redirect '/'
   end
+
+  # # DELETE: /users/5/delete
+  # delete '/users/2' do
+  #   @user = User.find_by_id(2)
+  #   @user.destroy
+  # end
 
 end

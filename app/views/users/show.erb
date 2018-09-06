@@ -2,20 +2,21 @@
 <%= flash[:message] %>
 <% end %>
 
-<h2>"Welcome, <%= @user.username %>!"<h2>
+<h2>Welcome, <%= @user.username %>!<h2>
 
 <h2>Here is Your Sandwich Platter<h2>
 <h4>
 <ul>
 <%@user.sandwiches.each do |sandwich|%>
+<br>
 <li><%=sandwich.sandwich_name%></li>
 <li><%=sandwich.ingredients%></li>
 <%if sandwich.user == @current_user%>
-<h3><a class="button" href="/sandwiches/<%=sandwich.id%>/edit">Edit a Sandwich</a></h3>
+<h4><a class="button" href="/sandwiches/<%=sandwich.id%>/edit">Edit Sandwich</a></h4>
 
 <form action="/sandwiches/<%=sandwich.id%>" method="post">
  <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Sandwich">
+    <input type="submit" value="Delete Sandwich"><br>
 </form>
 <%end%>
 <%end%>
