@@ -50,11 +50,12 @@ class SandwichesController < ApplicationController
   end
 
   patch '/sandwiches/:id' do
+    @user = Helpers.current_user(session)
     @sandwich = Sandwich.find_by_id(params[:id])
     if params[:sandwich_name] != ""
         @sandwich.update(:sandwich_name => params[:sandwich_name], :ingredients => params[:ingredients])
         @sandwich.save
-        redirect '/sandwiches'
+        redirect "/users/#{@user.id}"
     else
         redirect "/sandwiches/#{@sandwich.id}/edit"
     end
