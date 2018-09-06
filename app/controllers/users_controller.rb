@@ -2,13 +2,11 @@ class UsersController < ApplicationController
 
   use Rack::Flash
 
-  # GET: /users/new
   get '/users/new' do
     redirect "/users/show" if Helpers.is_logged_in?(session)
     erb :'users/new'
   end
   
-  # POST: /users
   post '/new' do
     redirect "/sandwiches" if Helpers.is_logged_in?(session)
     @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
@@ -22,7 +20,7 @@ class UsersController < ApplicationController
   
   get '/login' do
     if Helpers.is_logged_in?(session)
-      @user = User.find_by_id(params[:id])
+      @user = User.find_by_id(session[:user_id])
       redirect "/users/#{@user.id}"
     else
     erb :"/users/login"
@@ -39,15 +37,12 @@ class UsersController < ApplicationController
     end
   end
 
-  # GET: /users/show
   get '/users/:id' do
     if Helpers.is_logged_in?(session)
-      @user = User.find_by_id(params[:id])
-      @current_user = Helpers.current_user(session)
+      @user = Helpers.current_user(session)
       erb :'/users/show'
     else
       redirect '/login'
-      #end
     end
   end
     
@@ -55,11 +50,5 @@ class UsersController < ApplicationController
     session.clear
     redirect '/'
   end
-
-  # # DELETE: /users/5/delete
-  # delete '/users/2' do
-  #   @user = User.find_by_id(2)
-  #   @user.destroy
-  # end
 
 end

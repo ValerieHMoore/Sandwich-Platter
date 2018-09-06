@@ -6,12 +6,14 @@
 
 <h2>Here is Your Sandwich Platter<h2>
 <h4>
+<h3><a class="button" href="/sandwiches/new">Create a New Sandwich</a></h3>
+<h3><a class="button" href="/sandwiches">Go to All Sandwiches</a></h3>
 <ul>
 <%@user.sandwiches.each do |sandwich|%>
 <br>
-<li><%=sandwich.sandwich_name%></li>
+<li><%=sandwich.sandwich_name%><br></li>
 <li><%=sandwich.ingredients%></li>
-<%if sandwich.user == @current_user%>
+<%if sandwich.user == @user%>
 <h4><a class="button" href="/sandwiches/<%=sandwich.id%>/edit">Edit Sandwich</a></h4>
 
 <form action="/sandwiches/<%=sandwich.id%>" method="post">
@@ -21,8 +23,6 @@
 <%end%>
 <%end%>
 </ul> </h4>
-
-<h3><a class="button" href="/sandwiches/new">Create a New Sandwich</a></h3>
-
+<br>
 <h3><a class="button" href="/logout">Logout</a></h3>
 

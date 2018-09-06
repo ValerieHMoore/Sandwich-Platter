@@ -1,5 +1,6 @@
 <h2>All Sandwiches</h2>
-<h3><a class="button" href="/sandwiches/new">Create a New Sandwich</a></h3><br>
+<h3><a class="button" href="/sandwiches/new">Create a New Sandwich</a></h3>
+<h3><a class="button" href="/users/<%=@user.id%>">Go to My Sandwiches</a></h3><br>
 <ul>
 <%@sandwiches.each do |sandwich|%>
 <li><%=sandwich.sandwich_name%></li>
