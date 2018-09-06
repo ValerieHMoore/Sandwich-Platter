@@ -41,11 +41,14 @@ class SandwichesController < ApplicationController
   end
 
   get "/sandwiches/:id/edit" do
-    if Helpers.is_logged_in?(session)
-      @sandwich = Sandwich.find_by_id(params[:id])
-      erb :'sandwiches/edit'
+    @sandwich = Sandwich.find_by_id(params[:id])
+    if Helpers.not_authorize?(session, @sandwich)
+      redirect '/sandwiches'
+    end
+      if Helpers.is_logged_in?(session)
+        erb :'sandwiches/edit'
       else
-      redirect '/login'
+        redirect '/login'
       end
   end
 
@@ -76,4 +79,5 @@ class SandwichesController < ApplicationController
         redirect '/login'
       end
     end
+
 end

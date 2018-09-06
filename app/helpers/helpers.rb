@@ -12,4 +12,8 @@ class Helpers
         #    return false
         # end
     end
+
+    def self.not_authorize?(session, sandwich)
+        current_user(session) != sandwich.user   
+    end
 end

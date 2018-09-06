@@ -9,10 +9,10 @@ class UsersController < ApplicationController
   
   post '/new' do
     redirect "/sandwiches" if Helpers.is_logged_in?(session)
-    @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
     if params[:username].nil? || params[:username].length <= 0 || params[:email].nil? || params[:email].length <= 0 || params[:password].nil? || params[:password].length <= 0
-      redirect '/new'
+      redirect '/users/new'
     else
+    @user = User.create(:username => params[:username], :password => params[:password], :email => params[:email])
       session[:user_id] = @user.id
       redirect '/sandwiches'
     end
