@@ -1,4 +1,4 @@
-class CreateSandwiches < ActiveRecord::Migration
+class CreateSandwiches < ActiveRecord::Migration[4.2]
   def change
     create_table :sandwiches do |t|
       t.string :sandwich_name
